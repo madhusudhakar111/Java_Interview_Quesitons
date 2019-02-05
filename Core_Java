@@ -1,0 +1,1060 @@
+Core Java:
+- Static Vs Static Final.
+- What is Static keyword? 
+- What is Final keyword?
+- Can we declare a class as Static?
+- Can we have private Constructor?
+- Java is pass by value or pass by reference?
+-  Covariant return types
+- There is a class A which has a method "void m1()". There is an another class 'ArrogantChild' which extends 'A', and overrides method m1(). 
+  How can we accomplish that any subclass of 'ArrogantChild' do not override method m1(). (Ans: Use final or static keyword with that method)
+  Followup Questions as mentioned below:     
+a. What if the signature of method m1 in A is changed to "public void m1()" and "protected void m1()"?
+- Dynamic and Compile time binding with examples.
+- How do you package and execute a Jar file, what is Manifest file.
+- How do you create an Immutable class, Deep copy in case of class having mutable fields
+- How to restrict child class to implement parent class method
+- Can an Object Constructor Passing Same Object as Parameter? : Can
+- What is the criterion of 2 employee objects to be equal in java : Using .equals() method
+- What is the difference between equals and == method.
+- What is abstraction and interface? Gave the scenario of rooms and asked to design interface and abstract class for that.
+- Given a Temperature class with method getTemperature() implementation. Asked to write a unit test cases to validate behavior. : Room temp: 23 degree celsius
+- What happen if static is removed from main() method. : Will be unable to run the program without it.
+- What is jvm and jre
+- What is the flow, after a class starts executing(flow of the jvm) 
+- Role of class loader 
+- Heap vs stack 
+- Visiblity of protected member in java
+
+
+Java Memory Model:
+- what is java memory model. Explain different sections of JMM. how object is created in memory?
+- what will be the size of below object created in memory? 
+class Demo {    Demo d1 = new Demo(); } 
+- Types of memory - heap, permgen , thread stack, Garbage collection  
+- How to increase the heap size.
+
+String:
+- why string is immutable?
+- where is the new object created? will it go to string pool? if we use new with same string will it create two separate instance in heap? will it create in string pool also?
+- What is mutable and immutable with example?
+- How to achieve immutabality?
+- Advantage and disadvantage of Immutable class . How to make an immutable class.
+- How to make Date class as immutable. 
+- StringPool basics. 
+- == versus equals in string/Objects, immutablity, what happens if you change the string value in stringpool? (Can we change stringpool values?)
+
+Garbage Collection:
+- types of garbage collector.
+- mark and sweep algo for garbage collector.
+- why we use finalize? 
+- Does finalize always call? what if we assign the unreference object to any live object, would finalize claim the object?
+
+Serialization:
+- how will you implement the following - File is uploaded from one system ( from front end ) and needs to be sent to another system where it will be processed .(explained with Serialization & deserialization)
+- What if we serialize object where the class implements the serializable and one of the data member is the class member variable. So would class member variable will also be serialized. Does the class member variable implement serializable if an exception is occured? 
+-* Impact of cloanablity on serialization process.
+* We can use serialization for deep cloning.
+- What happens if parent class doesn't implement serializable interface? 
+* It will still work.
+- What if we set parent class attribute in child class and parent class doesn't implement serializable interface. Would serialization works? 
+* It won't, parent must implement serializable here.
+-* What if a class which implements the serializable interface and one of its data member is a class which is referred from third paty jar file and class data member doesn't implements serializable. Will the serialization works? 
+- How do we get the single instance only while deserialization of a singleton. What needs to be done?
+* In readResolve() method return same instance of singleton.
+ 
+Exception:
+- retun 1 from try and return 5 from finally . what will be the output?
+- Can we have try without Catch block?
+* We can have try and finally blocks
+- How the execution flow works if there is return in try catch and finally?
+- How to prevent finally block being executed?
+* System.exit()
+- How will you handle out of memory exception, what will you check?
+* Means heap area left no space. We can increase heap size by using command: java –Xmx6g TestClass
+- What is the Exception hierarchy 
+- Examples of runtime exceptions 
+- Runtime vs compiletime exceptions 
+- Try/catch, throw, throws :: where and why do we use them 
+- OOM (Out of memory) vs Stackoverflow, what will happen in infinite running loop?
+* In infinite loop if we are calling same method over and over then : StackOverflow exception
+* In infinite loop if we are creating new object: Out of memory error.
+ 
+Collection:
+- How to create a memory cache LRU using any data structure
+- what is loop in linklist
+- how to add and remove elements in linklist
+- is java single or dubly linked listed implemented?
+- what is the time complexity of the hashmap? what is the worst case time complexity
+- If we put the same key in hashmap what will happen. Will the value overriden?
+- On HashMap : Duplicate keys and values are possible or not?
+- On HashMap : Duplicate entries are possible or not ?
+- On HashMap : NULL key and NULL Values can be inserted or not?
+- On HashMap : Can Hash code be duplicated.
+- What is LinkedHashMap?
+- How will you get the Map data in sorted order?
+- What is difference between ArrayList and LinkedList when to use what.
+- What is hashing explain the hashing principal on white paper how it works.
+- Write a program to sort LinkedList in reverse order. 
+-* How to print elements in collection in reverse order using iterator? (hasNext() should behave as hasPrevious() and next() as previous()
+- TimeComplexity of hashmap and treemap and how it varies.
+- How to put int, double, string, Boolean in hashmap as key. Eg: map.put(1, value); map.put(“2”, value); map.put(3.0, value); map.put(true, value).
+- Difference between comparable and comparator. 
+-* Code to insert a node in a link list.
+- There is an EMP class with data members ID and Name, we need to store them in Descending order of their ID and if the IDs are same, then in ascending/natural order of their name. What data structure would you use and why? Solve the above problem. Followup questions as mentioned below:     
+a. Functionality of Comparator and Comparable     
+b. While defining the EMP class, what if EMP implement Comparator<EMP> instead of Comparable<EMP>.
+-* Create a customized data structure which should be always in a sorted order and should allow frequent writes and deletions. 
+- Internal of Hashmap and hashset
+- In which scenario we should use ConcurrentHashMap?
+-* Write code to get depth of a search tree. i. Follow up questions on advantages and disadvantages of recursion. 
+- what will happen if I am putting an object in the Hashmap and after putting I change that object (will that object in the hashmap change) 
+-* PutIfAbsent method – Implement that in Hashmap with synchronization
+-* Given binary tree, print it in the inorder traversal. 
+- Collections.sort() internally  how they work.(which sorting algorithm used)
+-* Write a program to Implement Stack using two queue
+- Provide data structure to find top 3 maximum occurrence of words from source(can be file , stream, String) and display graphically  the top 3 words along with count . (Do not use iteration) 
+* We can use map and sort it later according to value.
+-* Does equals method throw ClassCastException. What should be done to avoid it. 
+- What is hashcode and how it is calculated? 
+- How employee objects stored into sets with or without overriding equals and hash Code method. 
+-* red black trees 
+- Multivalued Map from Collection Framework 
+- Implement a custom queue
+- Will u prefer array or linked list in implementing the custom queue?why? 
+Multithreading:
+- countdownlatch and cyclic barrier ? how are they differ? Provide real time example? 
+- how to implement deadlock.
+- which one is faster concurrentHashmap or treemap?
+- can we start two thread at a time? can we start it after giving sleep(1000)?
+- what is wait and notify? 
+- does wait releases lock?
+- does sleep release lock?
+- what is notify and notifyAll?
+- sleep is a method of which class?
+- What is Deadlock?
+- Difference between wait() , notify(), notifyALL()
+- Demonstrate multithreading through a program: write deadlock program : write producer consumer through wait() & notify(). 
+- Demonstrate sequential output through multiple thread. 
+- Write a program where three threads T1,T2,T3 have to print output sequentially. I.e 1,2,3 4,,5,6 7,8,9 etc. 
+- How to implement threadpool?
+- There are 4 threads doing some task and once it is done executing need to check the result. How is it done?
+- Only One thread is doing some task, I want to process its result after it is done. How will u check that? Basically the ans is Future class function.
+- Executor Service concepts, diff between Executor and ExecutorService, when to use what? 
+- if 100 threads are running in parallel and we want to process threads in batch of 5 threads, how can be we do it? Ans - have a CyclicBarrier with count 5 and maintain a LinkedBlockingQueuefor size 5 and create two threads T1 and T2. 5 threads reach the barrier, thread T1 add them to queue and reset the CyclicBarrier and Thread T2 will check when the queue is full process the threads. 
+- How would you print A1 B1 A2 B2 A3 B3 .. A10 B10 and so on using two Threads. 
+- There are six worker threads under main thread, all the threads are returning integer , as soon as any thread returns main thread should save the data in DB.
+- Producer and Consumer problem.(explained using wait and notify)
+- Where you have used Multithreading in your Project. 
+- Write a Dead Lock Program on board. 
+- Explain double Linked List data Structure? 
+- what is threadlocal variable? 
+- Code to print sequential numbers using 3 threads. Approached when number of threads is increased (avoiding starvation of threads). 
+- Design multi threaded application to pick requests from db table and process them. 
+- Design custom thread pool and simple follow up questions on this. 
+- How will you decide which thread pool to use and what will be its size.
+
+MySQL:
+- Find out the longest word in a string which is valid and meaningful. Assume dictionary in place having two columns wordname and isValid(yes/no)
+- A table is having two columns. one column in chasis number and another is engine number. engine number is duplicate for chasisi number. Write a query to find out those duplicate engine number count for chasis. 
+- What is Group By clause in SQL?
+- Write a query to display max salary of an employees department wise.
+- sql query to find duplicates in a table.
+- sql query to find second highest in a table.
+- when to go for groupby and having clauses.
+- List the duplicates in a table. And find the max number of duplicates 
+- what is index and how does it help in DB.
+- There is a table with only one column "NAME", but the names can be duplicated. Write a SQL query to print the NAME and the frequency of the NAME that is the most frequent? 
+- Questions on Composite Key and Unique Index
+- How to write a Cursor. Do you see any performance issue with a Cursor. Have you worked on Sybase database. 
+- Write an SQL query to update the salary of all individuals such that there is an increment of 1000 Rs. He was looking for all sorts of ways to do this apart from the simple update query
+- Some records were given in table and having date column. Write an SQL query to find the data on a particular given date. Small discussions on using to_char and to_Date functions. 
+- Find the maximum salary from every department
+- What use case you would see Normalization unfit? 
+- Given a table tell the 2nd highest salary of the employee.
+- Daily at 6:00 PM you get an large file with three column (Trade ID, Trade Amount and Date).  You have 20 mins to compare that file with the previous date file stored in DB and show the report at 6:20 PM telling about the adding of new trade today and those trade whose Amount had reduced from yesterday.
+- Given  tables Employee salary, and Department.Display department name for employes with highest salary
+- Employee table has empId, name,gender, deptId. Write query to return the deptId where female count is more than 2. 
+- What is db Indexing. Different type of indexing. Which index to be used in what scenario. 
+- Employee table has EmpId, Direction(N,S,E,W).Write select query to return the direction from where maximum no. of employees come from. 
+- Delete Rows in Department table with no records in employee table using sub-query/co-related sub-query 
+- Write a query to return the 3rd row order by Id from Employee. 
+- How to handle Db migration 
+- Optimize stored procs 
+- Right logic to check if Db migration is optimized for any functionality  => Check logs of first Db functionality and 2nd Db functionality and compare run times in java i.e How to automate load test result
+- Design table structures to store accounts of employee and department. 
+- write query to get opening and closing balance of employee account at the end of a particular day.
+- write query to return 3rd highest salary from from the empoyee table department wise(dont use Derank/Rank/Rownumber) 
+- Write SQL query from Student table which gives the attribute of Student having maximum marks in each class. There is no primary key in the class.
+- Given an Employee table having salary attribute and department table, what would be the columns, primary keys, foreign keys. Which columns would need to have an index created on them explicitly. Was asked to write a query to find the maximum salary for each department along with the employee name also. 
+- Design a system to be used in a school for storing the information of all students and teachers. Tables, constraints, indexes to be created. Server side architecture, UI for the application, etc. 
+- Design a database to create tables for employee(emp name , sal etc etc) and address(City , State) Also find employee with maximum salary for each city
+- Types of indexes and syntax
+- There are five offices each office have 10k employee. Design a System that can record the Employee entry and exit time. Based on attendance generate that pay ship of the employee.
+1-  Attendance Module. (It record the attendance of employee )
+2-  Payroll Modules (Based on attendance it will generate payslip )
+Note:
+Designation of Employee: 
+Associate 
+Teach Lead 
+Manager  
+
+Consider all associate have same pay structure .Same for other also.
+1-What are the table are required.
+2-Design the rest end point for each operation.
+3-How do you handle if employee is absent.
+
+Write sql query that give the attendances of employee and use in pay roll module.
+
+- If a db query returned result in 30s, and is now returning the results in 30 mins , how will you debug the problem and fix it.
+- Explain how a database query performance can be improved 
+- what is outer and inner joins
+- Design the table structures and their associations and get the employee details and his manager details  and write the query to fetch the employee name and manager
+- Gs transport system:  Write a query to give only the direction from where max employees are coming? 
+- Write a query to display the direction from where max senior citizens are coming with age above 50 years
+
+MongoDB:
+- what is sharding in mongodb
+- Mongo DB queries
+
+Java 8 Features:
+- what is stream?
+- What is parallel stream?
+- Java8 features : What all java8 features do you know and have you used any of those?
+- Java 8 features - if local variables can be used in Lambda expressions (Ans - it can't be in Java  8 ) 
+- Use of default method and static method in interface in java8
+-  Discussion on lamda expression as java 8 
+- Question on streams-  filtering- like how to get selective data from a list, how to collect/create a map from a list om java 8.
+- what are streams, what are map, filter and reduce operations on streams, why default methods introduced in interfaces
+- Java 8 - What is Stream and Lambda, basic things.
+
+Hibernate:
+-  What if there is no primary key in a table, what/how to map @Id in the entity class? Say the table has some composite key.      
+- When will we use @IdClass vs @EmbeddedId, or more precisely difference between the two approach?
+- caching in hibernate  
+- Design LRU Cache
+- What is an ORM. What is the relationship between JPA and Hibernate.
+- Why we use hibernate?
+- How to configure Hibernate. 
+- Given a employee, department, salary table. 
+a. Design the table structures and their associations and get the employee details with salary based on the designation. 
+b. Design the class level structures and their associations using hibernate. 
+c. Should we use hibernate and why(both for yes or no). 
+d. JSON representation of employee object in association with department and salary objects. 
+- How in hibernate restrict one class variable not to store in DB. 
+- How do you implement LRU cache to show only latest 50  
+- Implement LRU cache
+
+Spring:
+- Spring flow ,Singleton/Prototype scopes.
+- If a class is created as Singleton and it needs to be auto wired and injected into some other bean which is registered in Spring xml. As the Singleton is already created and can’t be instantiated normally by Spring. How can it be injected.
+- What are the different modules that you have explored in Spring. What is the benefit of using Spring
+- How Spring Boot works .? 
+- How spring boot configures your system 
+- How would you stop using a jar in spring Boot Programmatically
+-  How spring performs dependency injection 
+- Types of dependency injection 
+- Write an example dependency injection code 
+- Told to write a rest service that would call two other rest services to fetch user details and return the response to the caller service 
+Explain the role of the annotations that are used to write the previous service 
+How to paginate the above service by modifying the url 
+- When to use path parameters and when to use query parameters 
+- Asked about matrix parameters 
+- How to externalize properties in spring 
+- How to access properties file based on environment with spring e.g. dev, prod, test. 
+- Spring Bean Life Cycle 
+- Spring container overview
+
+Design Patterns:
+- How do we avoid creating cloned copy of the object without throwing exception in clone method? 
+* Just return the same instance, if you won't want to throw CloneNotSupportedException.
+- Singleton Design pattern implementation.
+- Give a class level diagram considering pizza, topings and the billamount. Use all the properties that are required and the disign patterns 
+- Explain template design pattern 
+- Explain decorator design pattern 
+- Quick sort code 
+- Implement Chain of Responsibility Design Pattern.
+- Adapter design pattern in detail with real time implementation 
+- Gave a class with some attributes 
+Vehicle : 
+-having getters and setters 
+-noOfTyres 
+-hasAc 
+-IsAutomatic 
+Another class having different methods 
+-createVehicle(); here only we should have new instance creation 
+-withAc();no attributes should be added,returns isWithAc or not; 
+-Automatic();no attributes should be added,returns isAutomatic or not; 
+-build() 
+Write build() such that it gets all details of the Vehicle and return Vehicle object.
+- write testcase to check whether the singleton class is working fine (here the singleton class is stateless and has overriden equals and hashcode method); 
+- Questions on Singleton with the stateless scope. 
+- Explain how to write Junits for a singleton class. 
+- Explain Decorator, Adapter, chain of responsibility design patterns with real life scenarios. 4
+MicroServices:
+- Have you worked on Distributed System. 
+- How caching is done in distributed system, Cache implementation in distributed system and how hazelcast works
+- Eviction policy in caching in detail
+- What is the difference between soap and rest webservice. Differences at the implementation level. Which one you would use and why? 
+- How is JSON data format?
+- What is Web Services and what are the types?
+- First was a design question (bit back and forth on this, I have captured highlights) 
+o You have a task that needs to run 11 am every day and at 6 am on Monday  (My Answer – On a windows server we can schedule events) 
+o What about Linux machine (My Answer – Cron job) 
+o What if there are 1000 such jobs, using Java (My Answer – Will maintain in DB and assuming jobs are not inserted real time the Java program will query and cache entries for next hour and trigger jobs accordingly) 
+o What if it is in real-time (My Answer – New jobs will be posted in JMS queue and Java program will listen to queue. It will pick that and make entry into DB table and rest is same as above)
+- Have you configured both https and http in server side while using Restfull Web services
+- Given a Rest Micro Service write a Rest Client to it
+- Advantage and Disadvantage 0f Micro services.
+- Given Input :- 
+Employee Table with   Department Id ,AddressId as Foregin key . 
+Department table with Department Id. 
+Address Table with Address Id. 
+Design 3 Api :- 
+1> Fetch List of Employee details with AddressID given. 
+2>Fetch List of Employee based on DepartmentId ,And AddressId 
+3>Get the List<employee> having Maximum salary  in each department 
+  
+How would you create Schema ? 
+Started with Model design ,and Explained in detail of all sort of Association . 
+Then started with Rest api design .Then Service ,Dao . 
+How would you handle failure Scenario ?
+- How Microservices work ? 
+- You have a request Table  in which continuously requests are coming ,How would you handle each request  efficiently .There can be millions of records. 
+- If same request table data is picked by 50 jvm , and each jvm taking requested from same Request table ,and sending data to External system .How would you handle .
+- Design a system to combine different upstream data in to a single excel sheet and sheet should not have duplicate records, which possibly can send by the different upstream system .The upstream will send the data only  on particular timing e.g upstream1 three times a day ,upstream2 8o clock every day. 
+- How will you design google search functionality and what things will come to your mind first after hearing this requirement from customer
+- What approach you will take if no new deployment has been done for your application, but it seems all process are failing
+- How to debug when your system goes really slow. 
+- Design a remote API which is highly scalable, available, fault tolerant(almost 1 hour discussion in questions around this)
+- What is the need of Micro services, significance of Rest services and statelessness
+- Why is JSON being preferred over XML these days. 
+- What is REST, Why we use REST. REST standards. Difference between POST and PUT
+- What happens if we send data twice using POST,PUT,GET,DELETE. 
+- How exceptions are handled in an application.
+- How would you get data to UI if your database is down
+- Implement your own cache considering following scenarios. You have been given customer name and customer details. While implementing have a track of access time of the objects. 
+a. Size of cache should never go beyond 100. 
+b. data structures to use for faster addition,deletion and retrieval. 
+c. algorithm to implement it. 
+d. delete the data from cache based on access time. 
+e. Algo should work in multithreaded environment. Do not use synchronize keyword. 
+-  Marshalling/Unmarshalling in web services
+-  Kafka and Jms basic questions (Can we achieve the messaging system which Jms is doing using Kafka, topic, and queue)
+- Design an architecture for caching with respect to store an Employee class. What if there is no write operation, what data structure will you use
+- Soap vs Rest can we create Stateless using SOAP
+- How would you design a payment cycle in rest architecture. 
+- Design an application which will read data from a file and then put them in a db table. 
+- Difference between topic and queue. elaborate on where to use, real time use cases 
+- how would you design a payment cycle in rest architecture. 
+- if any time your transaction is getting failed, how would you roll back the previous transaction happened. 
+- load balancing working 
+- Design Stock Market System for sell and buy stock , then changed to fruit market.which include Application Architecture and DB design. 
+- How Authentication will work with Restful web Services and JWT token
+- @RestController and some specific JAX RS annotations which I used in my project 
+- how do you handle objects(coming from frontend) inside a restcontroller/api class ?if u use some annotation then what is that? 
+- What are get/put/post/delete 
+- What happens if programmer writes ‘post’ instead of ‘put’ in front end, also ‘put’ instead of ‘post’ 
+- How do spring knows a request is coming to which microservice 
+- Design payment gateway, some counter questions viz. how will you achieve loose coupling, why we use class/abstract/interface actual use cases
+
+Programs:
+- write a method where i will pass two strings and which return if two string are anagram or not?
+- Three arrays with sorted values. write a program to copy these three array to new array in sorted order without using sorting.
+- How will you find the second smallest and largest number from an array : Logic
+- Find out first unique character from a given string e.g.:-Input : ssaabdeeef Output
+- Reverse a string.
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Set of anagrams of list of words. The output should be words which are anagrams from the list should be grouped together.  ex- i/p-    " cat dog tac sat tas god dog"  o/p - cat tac sat tas dog god dog .
+- Write a program to find longestRepeatingSequence of character (Ex: aabbbbddcc o/p should be 'bbbb')
+- Write program to display first Unique character in a string?
+- How to find the missing number between 1-100?
+- Program to write for anagram?
+- Fibonacci series Iterative and recursive way. Return the number at the nth position.
+- Given a program of min distance between 2 words
+- There is string of continuous chars without space Like “THISISABETTERBOOK” . We have a 3rd party function “Boolean isValid(String str)” which tells if a string passed to it is a valid English word or not. Write the logic to find longest word in the given input. Here Ans is “BETTER”.
+- Given an array of integers {82, 54, 1, 38, 61, 24} find the combination of 2 digits which gives the sum of 55. () 
+- Given an input String "aaabbcaa"  produce the output in the format "3a2b1c2a". 
+- Debug program: there is an atoi(ascii to integer function) which takes string of digits as an input and gives the integer ascii sum of each digit. You will be  expected to change the logic so as to return the same digits as given in the input String Ex: "42" should be return as 42 
+- First consecutive occurrence of letter with max count and the start index of the occurrence. Examplen:10001111   : 4,4 aabbbbbACde : 2,5. 
+- First unique character of a string. E.g. aabdcce . Output : b 
+- Find the dot product of two arrays - mean array1[i] * array2[i] (if the length of the two  arrays are not equal then the loop should go for the lesser length). 
+- You are given a text from a chat session, for simplicity consider that it is in a file, write the code (production ready) to find the most frequent word (exclude the fillers). Choice of Data structure that would be used, approach, how to scale, etc
+- Design Flight Reservation system: Given source, destination and other options (Cost,no of Halts) as input, return array of flights as outputs. 
+- In Bankin system, thaere are varoius products like Equity, Mutual Fund. Some attributes are some for them like interest rate and some attributes are specific to them.  How will you desgn it. 
+- program to find second smallest number from int array
+- Program to shift all zeros to end of array: Input {2,0,4,5,0,7,0,0,3,2)  Output (2,4,5,7,3,2,0,0,0,0) 
+- Find the number in an array which is duplicate
+- Given a sum, we need to find a pair of numbers in an array equal to given sum, need to be done in O(n).hint : use Hashset 
+- Find number combinations (a,b) in a given range so that a^b = b^a 
+- Find longest palindrome in the given string 
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Fraction addition problem. 
+- Logical Problem: Given two Strings1 : aabccd11  and String2:aabbccdd11 write a program to return extra character so that both strings are anagram
+- Logical Problem: Input: “GGGGGRRTTTOO”  Output: “G5R2T3O2”. 
+- Logical Problem: Find the second smallest element in the array. 
+- Given an array of numbers find the second smallest number. eg {33,4,1,2,99}  output : 2 
+- Arrange given numbers to form the biggest number.Input- List of numbers : {1, 34, 3, 98, 9, 76, 45, 4}   Output – 998764543431
+- Given Input,print the following output: “SSSSSTTPPQ”  Output: “5S2T2P1Q”.
+- Given an input String s= "AGBCAPPBLLC" Target : ABC. Find the smallest substring which contains the target.Result should be {AGFBC}
+- Largest substring with unique characters e.g. aaabcbdeaf Output : cbdeaf 
+- Minimum distance between 2 words counting the number of characters from middle of both words. E.g. ABC is XYZ and ABC & XYZ are two distinct words. Minimum distance between ABC and XYZ 
+- Given Input,print the following input: “SSSSSTTPPQ”  Output: “5S2T2P1Q”. 
+- Given Input,print the following input: “abababcd”  Output: “3a3b1c1d”. 
+- Given an input String s= "AGBCAPPBLLC" Target : ABC. Find the smallest substring which contains the target.Result should be {AGFBC} 
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Reverse a String without in-build function.
+- Given Input,print the following input: “AAASSSSMBBB”  Output: “3A4S1M3B”
+- Smallest subarray with sum greater than or equal to a given value. 
+Examples: arr[] = {1, 4, 45, 6, 0, 19}  x  =  51 
+Output: 3 
+- Find longest word in a given dictionary  
+example : dictionary is : {"to","toe","toes","doe","dog","god","dogs","book","banana"} and input String is "dsetog" 
+    output : toes, dogs 
+- Find the number in an array which is duplicate
+-  Given an array of Employees with name,marks. Find out the maximum average marks from the list. 
+String[][] scores={{"Bobby","123"},                                 
+{"Alia","-678"},                                 
+{"Bobby","100"},                                 
+{"Alex","223"},                                 
+{"Alex","-23"},                                 
+{"Bobby","723"}                                 
+}; Avg Bobby = 315,Alex= 100,Alia=-678. 
+Result: 315 
+- 2nd largest number 
+- Reverse string (Asked me to optimize it more and other methods to do it) 
+- You are given a sentence and you have to find the missing alphabets. 
+- Find the second smallest element of the sorted rotated array?      During the conversation, important thing was to include extreme scenarios when the array is empty or has just 1 element. 
+-  Given some string as input "GOOGLEDOCS",      print the following Output in the alphabetical order: "C1D1E1G2L1O3S1
+- Sort List of Names based on length List<String> has {"abc" ,"d","sfwefwe"}  end result after sorting  {"d" ,"abc","sfwefwe"} 
+- Read files coming from upstream in folder and process them based on their timestamp. files are like : Product_timestamp(20180609180901).csv            YYYYMMDDHHmmSS.. Constraint: 
+a) In case Multiple file are present process them in timestamp order: sort file on timestamp and process them 
+b) How will you handle duplicate file send from upstream: -- Cache last read timestamp> current file time stamp. 
+Add logic to ignore unwanted files (file.getExtension=="CSV" and file name start with "Product_") 
+c) How will you handle file still under movement: i.e file is still coming over network.          
+wait for file to be completely moved (ask logic to generate flag value may be on size and give retry logic) and then process remaining file. 
+- Find the maximum number of valid consecutive braces. A valid brace is ().   e.g.  ()()()((((())()()()()() Count in this case is 5            ()()((()()()(()) Count in this case is 3 3
+- Write pseudo code to find 1st non-repeating character in a give string.
+- Given an m*n matrix, print the matrix in reverse spiral form using recursion. 
+- Find the second smallest number from an int array. 
+- Find the smallest subarray whose sum is equal or greater than the target value 
+- Generate n number of sequence which have the prime factors as 2, 3, 5.. 
+- Arr1 = {a1, b1, c1}     Arr2 = {a2, b2, c2} Produce the output = a1a2+b1b2+c1c2. Should be optimized considering time complexity... 
+- Given an array [2, 1, 5, 8, 10] and a number 6, return a number from the array which is nearest to the given number. Time complexity of the solution. Now the array is sorted, can it be done with better time complexity. 
+- Maximize the profit from given array of stock prices over a week 
+- Given a dataset as follows(In a particular year, for a particular sport, the corresponding sports person broke the record. e.g. In the year 1990, in Cricket ABC broke a record and so on.): 
+Year         Sports 
+SportsPerson 
+----------------------------------------- 
+1990 Cricket ABC 
+1990 Tennis XYZ 
+1995 Cricket ABC2 
+1996 Tennis XYZ2 
+Write a data structure to store these data, so that if a year and sport is given in the argument, it should return the name of the sports person who broke a record in that particular sport in the year latest to the given year. 
+e.g. for year 1992 and sport Cricket it should return the latest record breaker i.e. ABC. 
+
+
+Puzzle:
+- A puzzle: You are given two ropes. Each of them take 60 minutes to burn. How would you measure 45 mins.
+- You have 10 boxes of balls (each ball weighing 10 gm) with one box with defective balls (each one of the defective balls weigh 9 gm). You are given an electronic weighing machine and only one chance at it. How will find out which box has the defective balls 
+- Have a 7 cm long gold bar, need to give 1 cm long piece to a worker daily for 7 days 2 cuts can be made on the gold bar. how to achieve this?
+Employer can pay for seven days by making 2 cuts in a way that he has 3 rods of size 1, 2 and 4.
+1st Day: Employer gives 1 unit cut.
+2nd day: Takes back 1 unit cut from employee given on first day and gives 2 unit cut.
+3rd Day: Gives both 1 unit and 2 unit cuts.
+4th Day: Takes back cuts of 1 and 2 units. Gives the cut of 4 units.
+  5th Day: Gives cut of 1 unit.
+6th Day: Takes back cut of 1 unit and gives cut of 2 units.
+7th Day: Gives cut of 1 unit.
+- Given a series of 9 bulbs with all of them switched on in the 1st iteration, 
+2nd iteration bulb No 2,4,6,8 toggled 
+3rd iteration bulb No 3,6,9 toggled 
+4th iteration No 4,8 toggled 
+How many number of bulbs will remain switched on at the end.
+At the end of 1000 iteration how many bulbs are lit and derive a formula to calculate the same
+How many number of bulbs will remain switched on at the end 9th iteration
+2nd iteration bulb No 2,4,6,8 toggled  
+3rd iteration bulb No 3,6,9 toggled  
+4th iteration No 4,8 toggled  
+5th iteration No 5 toggled  6
+th iteration No 6 toggled  
+7th iteration No 7 toggled  
+8th iteration No 8 toggled  
+9th iteration No 9 toggled  
+How many number of bulbs will remain switched on at  the end. and what is the sequence , and : hope your ans may come 1,4,9: and the sequence is perfect square 
+- There is 5l and 3l water can . Draw from it 4l of water in minimum steps. 
+
+JQuery:
+- How is jQuery, Knockout useful. (Were listed on my resume) 
+
+Performance:
+- A server process 1000 request per second. Make it capable of doing 10000 request per second. He was asking suggestions.
+
+JUnit:
+- Which testing framework you know
+- How doing mocking for JUNIT for endpoint or for web services
+- Integration test - Basic questions, how to mock, etc
+
+Managerial Round:
+- Kind of managerial ,behavioral(many behavioral questions on team conflict and overseas team collaboration) .
+- How to solve production related issues.(different ways, how we can solve)
+
+JMS:
+- Asked about jms(Java Messaging Services) 
+
+Maven:
+- How maven manages the project structure and how it internally works
+
+Servers:
+- Asked about Weblogic, can you create data source, queue etc 
+- how deployment is done in weblogic.
+
+Testing:
+- Have you done any load testing. which tool did u use?
+- Selenium script : Two input fields are there in a web page with one submit button. You have to enter field values and click on submit button. Then, go to next page and verify the message : “Data successfully saved.”
+- What is code coverage?
+- 
+Unix:
+- Basi 
+Core Java:
+- Static Vs Static Final.
+- What is Static keyword? 
+- What is Final keyword?
+- Can we declare a class as Static?
+- Can we have private Constructor?
+- Java is pass by value or pass by reference?
+-  Covariant return types
+- There is a class A which has a method "void m1()". There is an another class 'ArrogantChild' which extends 'A', and overrides method m1(). 
+  How can we accomplish that any subclass of 'ArrogantChild' do not override method m1(). (Ans: Use final or static keyword with that method)
+  Followup Questions as mentioned below:     
+a. What if the signature of method m1 in A is changed to "public void m1()" and "protected void m1()"?
+- Dynamic and Compile time binding with examples.
+- How do you package and execute a Jar file, what is Manifest file.
+- How do you create an Immutable class, Deep copy in case of class having mutable fields
+- How to restrict child class to implement parent class method
+- Can an Object Constructor Passing Same Object as Parameter? : Can
+- What is the criterion of 2 employee objects to be equal in java : Using .equals() method
+- What is the difference between equals and == method.
+- What is abstraction and interface? Gave the scenario of rooms and asked to design interface and abstract class for that.
+- Given a Temperature class with method getTemperature() implementation. Asked to write a unit test cases to validate behavior. : Room temp: 23 degree celsius
+- What happen if static is removed from main() method. : Will be unable to run the program without it.
+- What is jvm and jre
+- What is the flow, after a class starts executing(flow of the jvm) 
+- Role of class loader 
+- Heap vs stack 
+- Visiblity of protected member in java
+
+
+Java Memory Model:
+- what is java memory model. Explain different sections of JMM. how object is created in memory?
+- what will be the size of below object created in memory? 
+class Demo {    Demo d1 = new Demo(); } 
+- Types of memory - heap, permgen , thread stack, Garbage collection  
+- How to increase the heap size.
+
+String:
+- why string is immutable?
+- where is the new object created? will it go to string pool? if we use new with same string will it create two separate instance in heap? will it create in string pool also?
+- What is mutable and immutable with example?
+- How to achieve immutabality?
+- Advantage and disadvantage of Immutable class . How to make an immutable class.
+- How to make Date class as immutable. 
+- StringPool basics. 
+- == versus equals in string/Objects, immutablity, what happens if you change the string value in stringpool? (Can we change stringpool values?)
+
+Garbage Collection:
+- types of garbage collector.
+- mark and sweep algo for garbage collector.
+- why we use finalize? 
+- Does finalize always call? what if we assign the unreference object to any live object, would finalize claim the object?
+
+Serialization:
+- how will you implement the following - File is uploaded from one system ( from front end ) and needs to be sent to another system where it will be processed .(explained with Serialization & deserialization)
+- What if we serialize object where the class implements the serializable and one of the data member is the class member variable. So would class member variable will also be serialized. Does the class member variable implement serializable if an exception is occured? 
+-* Impact of cloanablity on serialization process.
+* We can use serialization for deep cloning.
+- What happens if parent class doesn't implement serializable interface? 
+* It will still work.
+- What if we set parent class attribute in child class and parent class doesn't implement serializable interface. Would serialization works? 
+* It won't, parent must implement serializable here.
+-* What if a class which implements the serializable interface and one of its data member is a class which is referred from third paty jar file and class data member doesn't implements serializable. Will the serialization works? 
+- How do we get the single instance only while deserialization of a singleton. What needs to be done?
+* In readResolve() method return same instance of singleton.
+ 
+Exception:
+- retun 1 from try and return 5 from finally . what will be the output?
+- Can we have try without Catch block?
+* We can have try and finally blocks
+- How the execution flow works if there is return in try catch and finally?
+- How to prevent finally block being executed?
+* System.exit()
+- How will you handle out of memory exception, what will you check?
+* Means heap area left no space. We can increase heap size by using command: java –Xmx6g TestClass
+- What is the Exception hierarchy 
+- Examples of runtime exceptions 
+- Runtime vs compiletime exceptions 
+- Try/catch, throw, throws :: where and why do we use them 
+- OOM (Out of memory) vs Stackoverflow, what will happen in infinite running loop?
+* In infinite loop if we are calling same method over and over then : StackOverflow exception
+* In infinite loop if we are creating new object: Out of memory error.
+ 
+Collection:
+- How to create a memory cache LRU using any data structure
+- what is loop in linklist
+- how to add and remove elements in linklist
+- is java single or dubly linked listed implemented?
+- what is the time complexity of the hashmap? what is the worst case time complexity
+- If we put the same key in hashmap what will happen. Will the value overriden?
+- On HashMap : Duplicate keys and values are possible or not?
+- On HashMap : Duplicate entries are possible or not ?
+- On HashMap : NULL key and NULL Values can be inserted or not?
+- On HashMap : Can Hash code be duplicated.
+- What is LinkedHashMap?
+- How will you get the Map data in sorted order?
+- What is difference between ArrayList and LinkedList when to use what.
+- What is hashing explain the hashing principal on white paper how it works.
+- Write a program to sort LinkedList in reverse order. 
+-* How to print elements in collection in reverse order using iterator? (hasNext() should behave as hasPrevious() and next() as previous()
+- TimeComplexity of hashmap and treemap and how it varies.
+- How to put int, double, string, Boolean in hashmap as key. Eg: map.put(1, value); map.put(“2”, value); map.put(3.0, value); map.put(true, value).
+- Difference between comparable and comparator. 
+-* Code to insert a node in a link list.
+- There is an EMP class with data members ID and Name, we need to store them in Descending order of their ID and if the IDs are same, then in ascending/natural order of their name. What data structure would you use and why? Solve the above problem. Followup questions as mentioned below:     
+a. Functionality of Comparator and Comparable     
+b. While defining the EMP class, what if EMP implement Comparator<EMP> instead of Comparable<EMP>.
+-* Create a customized data structure which should be always in a sorted order and should allow frequent writes and deletions. 
+- Internal of Hashmap and hashset
+- In which scenario we should use ConcurrentHashMap?
+-* Write code to get depth of a search tree. i. Follow up questions on advantages and disadvantages of recursion. 
+- what will happen if I am putting an object in the Hashmap and after putting I change that object (will that object in the hashmap change) 
+-* PutIfAbsent method – Implement that in Hashmap with synchronization
+-* Given binary tree, print it in the inorder traversal. 
+- Collections.sort() internally  how they work.(which sorting algorithm used)
+-* Write a program to Implement Stack using two queue
+- Provide data structure to find top 3 maximum occurrence of words from source(can be file , stream, String) and display graphically  the top 3 words along with count . (Do not use iteration) 
+* We can use map and sort it later according to value.
+-* Does equals method throw ClassCastException. What should be done to avoid it. 
+- What is hashcode and how it is calculated? 
+- How employee objects stored into sets with or without overriding equals and hash Code method. 
+-* red black trees 
+- Multivalued Map from Collection Framework 
+- Implement a custom queue
+- Will u prefer array or linked list in implementing the custom queue?why? 
+Multithreading:
+- countdownlatch and cyclic barrier ? how are they differ? Provide real time example? 
+- how to implement deadlock.
+- which one is faster concurrentHashmap or treemap?
+- can we start two thread at a time? can we start it after giving sleep(1000)?
+- what is wait and notify? 
+- does wait releases lock?
+- does sleep release lock?
+- what is notify and notifyAll?
+- sleep is a method of which class?
+- What is Deadlock?
+- Difference between wait() , notify(), notifyALL()
+- Demonstrate multithreading through a program: write deadlock program : write producer consumer through wait() & notify(). 
+- Demonstrate sequential output through multiple thread. 
+- Write a program where three threads T1,T2,T3 have to print output sequentially. I.e 1,2,3 4,,5,6 7,8,9 etc. 
+- How to implement threadpool?
+- There are 4 threads doing some task and once it is done executing need to check the result. How is it done?
+- Only One thread is doing some task, I want to process its result after it is done. How will u check that? Basically the ans is Future class function.
+- Executor Service concepts, diff between Executor and ExecutorService, when to use what? 
+- if 100 threads are running in parallel and we want to process threads in batch of 5 threads, how can be we do it? Ans - have a CyclicBarrier with count 5 and maintain a LinkedBlockingQueuefor size 5 and create two threads T1 and T2. 5 threads reach the barrier, thread T1 add them to queue and reset the CyclicBarrier and Thread T2 will check when the queue is full process the threads. 
+- How would you print A1 B1 A2 B2 A3 B3 .. A10 B10 and so on using two Threads. 
+- There are six worker threads under main thread, all the threads are returning integer , as soon as any thread returns main thread should save the data in DB.
+- Producer and Consumer problem.(explained using wait and notify)
+- Where you have used Multithreading in your Project. 
+- Write a Dead Lock Program on board. 
+- Explain double Linked List data Structure? 
+- what is threadlocal variable? 
+- Code to print sequential numbers using 3 threads. Approached when number of threads is increased (avoiding starvation of threads). 
+- Design multi threaded application to pick requests from db table and process them. 
+- Design custom thread pool and simple follow up questions on this. 
+- How will you decide which thread pool to use and what will be its size.
+
+MySQL:
+- Find out the longest word in a string which is valid and meaningful. Assume dictionary in place having two columns wordname and isValid(yes/no)
+- A table is having two columns. one column in chasis number and another is engine number. engine number is duplicate for chasisi number. Write a query to find out those duplicate engine number count for chasis. 
+- What is Group By clause in SQL?
+- Write a query to display max salary of an employees department wise.
+- sql query to find duplicates in a table.
+- sql query to find second highest in a table.
+- when to go for groupby and having clauses.
+- List the duplicates in a table. And find the max number of duplicates 
+- what is index and how does it help in DB.
+- There is a table with only one column "NAME", but the names can be duplicated. Write a SQL query to print the NAME and the frequency of the NAME that is the most frequent? 
+- Questions on Composite Key and Unique Index
+- How to write a Cursor. Do you see any performance issue with a Cursor. Have you worked on Sybase database. 
+- Write an SQL query to update the salary of all individuals such that there is an increment of 1000 Rs. He was looking for all sorts of ways to do this apart from the simple update query
+- Some records were given in table and having date column. Write an SQL query to find the data on a particular given date. Small discussions on using to_char and to_Date functions. 
+- Find the maximum salary from every department
+- What use case you would see Normalization unfit? 
+- Given a table tell the 2nd highest salary of the employee.
+- Daily at 6:00 PM you get an large file with three column (Trade ID, Trade Amount and Date).  You have 20 mins to compare that file with the previous date file stored in DB and show the report at 6:20 PM telling about the adding of new trade today and those trade whose Amount had reduced from yesterday.
+- Given  tables Employee salary, and Department.Display department name for employes with highest salary
+- Employee table has empId, name,gender, deptId. Write query to return the deptId where female count is more than 2. 
+- What is db Indexing. Different type of indexing. Which index to be used in what scenario. 
+- Employee table has EmpId, Direction(N,S,E,W).Write select query to return the direction from where maximum no. of employees come from. 
+- Delete Rows in Department table with no records in employee table using sub-query/co-related sub-query 
+- Write a query to return the 3rd row order by Id from Employee. 
+- How to handle Db migration 
+- Optimize stored procs 
+- Right logic to check if Db migration is optimized for any functionality  => Check logs of first Db functionality and 2nd Db functionality and compare run times in java i.e How to automate load test result
+- Design table structures to store accounts of employee and department. 
+- write query to get opening and closing balance of employee account at the end of a particular day.
+- write query to return 3rd highest salary from from the empoyee table department wise(dont use Derank/Rank/Rownumber) 
+- Write SQL query from Student table which gives the attribute of Student having maximum marks in each class. There is no primary key in the class.
+- Given an Employee table having salary attribute and department table, what would be the columns, primary keys, foreign keys. Which columns would need to have an index created on them explicitly. Was asked to write a query to find the maximum salary for each department along with the employee name also. 
+- Design a system to be used in a school for storing the information of all students and teachers. Tables, constraints, indexes to be created. Server side architecture, UI for the application, etc. 
+- Design a database to create tables for employee(emp name , sal etc etc) and address(City , State) Also find employee with maximum salary for each city
+- Types of indexes and syntax
+- There are five offices each office have 10k employee. Design a System that can record the Employee entry and exit time. Based on attendance generate that pay ship of the employee.
+1-  Attendance Module. (It record the attendance of employee )
+2-  Payroll Modules (Based on attendance it will generate payslip )
+Note:
+Designation of Employee: 
+Associate 
+Teach Lead 
+Manager  
+
+Consider all associate have same pay structure .Same for other also.
+1-What are the table are required.
+2-Design the rest end point for each operation.
+3-How do you handle if employee is absent.
+
+Write sql query that give the attendances of employee and use in pay roll module.
+
+- If a db query returned result in 30s, and is now returning the results in 30 mins , how will you debug the problem and fix it.
+- Explain how a database query performance can be improved 
+- what is outer and inner joins
+- Design the table structures and their associations and get the employee details and his manager details  and write the query to fetch the employee name and manager
+- Gs transport system:  Write a query to give only the direction from where max employees are coming? 
+- Write a query to display the direction from where max senior citizens are coming with age above 50 years
+
+MongoDB:
+- what is sharding in mongodb
+- Mongo DB queries
+
+Java 8 Features:
+- what is stream?
+- What is parallel stream?
+- Java8 features : What all java8 features do you know and have you used any of those?
+- Java 8 features - if local variables can be used in Lambda expressions (Ans - it can't be in Java  8 ) 
+- Use of default method and static method in interface in java8
+-  Discussion on lamda expression as java 8 
+- Question on streams-  filtering- like how to get selective data from a list, how to collect/create a map from a list om java 8.
+- what are streams, what are map, filter and reduce operations on streams, why default methods introduced in interfaces
+- Java 8 - What is Stream and Lambda, basic things.
+
+Hibernate:
+-  What if there is no primary key in a table, what/how to map @Id in the entity class? Say the table has some composite key.      
+- When will we use @IdClass vs @EmbeddedId, or more precisely difference between the two approach?
+- caching in hibernate  
+- Design LRU Cache
+- What is an ORM. What is the relationship between JPA and Hibernate.
+- Why we use hibernate?
+- How to configure Hibernate. 
+- Given a employee, department, salary table. 
+a. Design the table structures and their associations and get the employee details with salary based on the designation. 
+b. Design the class level structures and their associations using hibernate. 
+c. Should we use hibernate and why(both for yes or no). 
+d. JSON representation of employee object in association with department and salary objects. 
+- How in hibernate restrict one class variable not to store in DB. 
+- How do you implement LRU cache to show only latest 50  
+- Implement LRU cache
+
+Spring:
+- Spring flow ,Singleton/Prototype scopes.
+- If a class is created as Singleton and it needs to be auto wired and injected into some other bean which is registered in Spring xml. As the Singleton is already created and can’t be instantiated normally by Spring. How can it be injected.
+- What are the different modules that you have explored in Spring. What is the benefit of using Spring
+- How Spring Boot works .? 
+- How spring boot configures your system 
+- How would you stop using a jar in spring Boot Programmatically
+-  How spring performs dependency injection 
+- Types of dependency injection 
+- Write an example dependency injection code 
+- Told to write a rest service that would call two other rest services to fetch user details and return the response to the caller service 
+Explain the role of the annotations that are used to write the previous service 
+How to paginate the above service by modifying the url 
+- When to use path parameters and when to use query parameters 
+- Asked about matrix parameters 
+- How to externalize properties in spring 
+- How to access properties file based on environment with spring e.g. dev, prod, test. 
+- Spring Bean Life Cycle 
+- Spring container overview
+
+Design Patterns:
+- How do we avoid creating cloned copy of the object without throwing exception in clone method? 
+* Just return the same instance, if you won't want to throw CloneNotSupportedException.
+- Singleton Design pattern implementation.
+- Give a class level diagram considering pizza, topings and the billamount. Use all the properties that are required and the disign patterns 
+- Explain template design pattern 
+- Explain decorator design pattern 
+- Quick sort code 
+- Implement Chain of Responsibility Design Pattern.
+- Adapter design pattern in detail with real time implementation 
+- Gave a class with some attributes 
+Vehicle : 
+-having getters and setters 
+-noOfTyres 
+-hasAc 
+-IsAutomatic 
+Another class having different methods 
+-createVehicle(); here only we should have new instance creation 
+-withAc();no attributes should be added,returns isWithAc or not; 
+-Automatic();no attributes should be added,returns isAutomatic or not; 
+-build() 
+Write build() such that it gets all details of the Vehicle and return Vehicle object.
+- write testcase to check whether the singleton class is working fine (here the singleton class is stateless and has overriden equals and hashcode method); 
+- Questions on Singleton with the stateless scope. 
+- Explain how to write Junits for a singleton class. 
+- Explain Decorator, Adapter, chain of responsibility design patterns with real life scenarios. 4
+MicroServices:
+- Have you worked on Distributed System. 
+- How caching is done in distributed system, Cache implementation in distributed system and how hazelcast works
+- Eviction policy in caching in detail
+- What is the difference between soap and rest webservice. Differences at the implementation level. Which one you would use and why? 
+- How is JSON data format?
+- What is Web Services and what are the types?
+- First was a design question (bit back and forth on this, I have captured highlights) 
+o You have a task that needs to run 11 am every day and at 6 am on Monday  (My Answer – On a windows server we can schedule events) 
+o What about Linux machine (My Answer – Cron job) 
+o What if there are 1000 such jobs, using Java (My Answer – Will maintain in DB and assuming jobs are not inserted real time the Java program will query and cache entries for next hour and trigger jobs accordingly) 
+o What if it is in real-time (My Answer – New jobs will be posted in JMS queue and Java program will listen to queue. It will pick that and make entry into DB table and rest is same as above)
+- Have you configured both https and http in server side while using Restfull Web services
+- Given a Rest Micro Service write a Rest Client to it
+- Advantage and Disadvantage 0f Micro services.
+- Given Input :- 
+Employee Table with   Department Id ,AddressId as Foregin key . 
+Department table with Department Id. 
+Address Table with Address Id. 
+Design 3 Api :- 
+1> Fetch List of Employee details with AddressID given. 
+2>Fetch List of Employee based on DepartmentId ,And AddressId 
+3>Get the List<employee> having Maximum salary  in each department 
+  
+How would you create Schema ? 
+Started with Model design ,and Explained in detail of all sort of Association . 
+Then started with Rest api design .Then Service ,Dao . 
+How would you handle failure Scenario ?
+- How Microservices work ? 
+- You have a request Table  in which continuously requests are coming ,How would you handle each request  efficiently .There can be millions of records. 
+- If same request table data is picked by 50 jvm , and each jvm taking requested from same Request table ,and sending data to External system .How would you handle .
+- Design a system to combine different upstream data in to a single excel sheet and sheet should not have duplicate records, which possibly can send by the different upstream system .The upstream will send the data only  on particular timing e.g upstream1 three times a day ,upstream2 8o clock every day. 
+- How will you design google search functionality and what things will come to your mind first after hearing this requirement from customer
+- What approach you will take if no new deployment has been done for your application, but it seems all process are failing
+- How to debug when your system goes really slow. 
+- Design a remote API which is highly scalable, available, fault tolerant(almost 1 hour discussion in questions around this)
+- What is the need of Micro services, significance of Rest services and statelessness
+- Why is JSON being preferred over XML these days. 
+- What is REST, Why we use REST. REST standards. Difference between POST and PUT
+- What happens if we send data twice using POST,PUT,GET,DELETE. 
+- How exceptions are handled in an application.
+- How would you get data to UI if your database is down
+- Implement your own cache considering following scenarios. You have been given customer name and customer details. While implementing have a track of access time of the objects. 
+a. Size of cache should never go beyond 100. 
+b. data structures to use for faster addition,deletion and retrieval. 
+c. algorithm to implement it. 
+d. delete the data from cache based on access time. 
+e. Algo should work in multithreaded environment. Do not use synchronize keyword. 
+-  Marshalling/Unmarshalling in web services
+-  Kafka and Jms basic questions (Can we achieve the messaging system which Jms is doing using Kafka, topic, and queue)
+- Design an architecture for caching with respect to store an Employee class. What if there is no write operation, what data structure will you use
+- Soap vs Rest can we create Stateless using SOAP
+- How would you design a payment cycle in rest architecture. 
+- Design an application which will read data from a file and then put them in a db table. 
+- Difference between topic and queue. elaborate on where to use, real time use cases 
+- how would you design a payment cycle in rest architecture. 
+- if any time your transaction is getting failed, how would you roll back the previous transaction happened. 
+- load balancing working 
+- Design Stock Market System for sell and buy stock , then changed to fruit market.which include Application Architecture and DB design. 
+- How Authentication will work with Restful web Services and JWT token
+- @RestController and some specific JAX RS annotations which I used in my project 
+- how do you handle objects(coming from frontend) inside a restcontroller/api class ?if u use some annotation then what is that? 
+- What are get/put/post/delete 
+- What happens if programmer writes ‘post’ instead of ‘put’ in front end, also ‘put’ instead of ‘post’ 
+- How do spring knows a request is coming to which microservice 
+- Design payment gateway, some counter questions viz. how will you achieve loose coupling, why we use class/abstract/interface actual use cases
+
+Programs:
+- write a method where i will pass two strings and which return if two string are anagram or not?
+- Three arrays with sorted values. write a program to copy these three array to new array in sorted order without using sorting.
+- How will you find the second smallest and largest number from an array : Logic
+- Find out first unique character from a given string e.g.:-Input : ssaabdeeef Output
+- Reverse a string.
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Set of anagrams of list of words. The output should be words which are anagrams from the list should be grouped together.  ex- i/p-    " cat dog tac sat tas god dog"  o/p - cat tac sat tas dog god dog .
+- Write a program to find longestRepeatingSequence of character (Ex: aabbbbddcc o/p should be 'bbbb')
+- Write program to display first Unique character in a string?
+- How to find the missing number between 1-100?
+- Program to write for anagram?
+- Fibonacci series Iterative and recursive way. Return the number at the nth position.
+- Given a program of min distance between 2 words
+- There is string of continuous chars without space Like “THISISABETTERBOOK” . We have a 3rd party function “Boolean isValid(String str)” which tells if a string passed to it is a valid English word or not. Write the logic to find longest word in the given input. Here Ans is “BETTER”.
+- Given an array of integers {82, 54, 1, 38, 61, 24} find the combination of 2 digits which gives the sum of 55. () 
+- Given an input String "aaabbcaa"  produce the output in the format "3a2b1c2a". 
+- Debug program: there is an atoi(ascii to integer function) which takes string of digits as an input and gives the integer ascii sum of each digit. You will be  expected to change the logic so as to return the same digits as given in the input String Ex: "42" should be return as 42 
+- First consecutive occurrence of letter with max count and the start index of the occurrence. Examplen:10001111   : 4,4 aabbbbbACde : 2,5. 
+- First unique character of a string. E.g. aabdcce . Output : b 
+- Find the dot product of two arrays - mean array1[i] * array2[i] (if the length of the two  arrays are not equal then the loop should go for the lesser length). 
+- You are given a text from a chat session, for simplicity consider that it is in a file, write the code (production ready) to find the most frequent word (exclude the fillers). Choice of Data structure that would be used, approach, how to scale, etc
+- Design Flight Reservation system: Given source, destination and other options (Cost,no of Halts) as input, return array of flights as outputs. 
+- In Bankin system, thaere are varoius products like Equity, Mutual Fund. Some attributes are some for them like interest rate and some attributes are specific to them.  How will you desgn it. 
+- program to find second smallest number from int array
+- Program to shift all zeros to end of array: Input {2,0,4,5,0,7,0,0,3,2)  Output (2,4,5,7,3,2,0,0,0,0) 
+- Find the number in an array which is duplicate
+- Given a sum, we need to find a pair of numbers in an array equal to given sum, need to be done in O(n).hint : use Hashset 
+- Find number combinations (a,b) in a given range so that a^b = b^a 
+- Find longest palindrome in the given string 
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Fraction addition problem. 
+- Logical Problem: Given two Strings1 : aabccd11  and String2:aabbccdd11 write a program to return extra character so that both strings are anagram
+- Logical Problem: Input: “GGGGGRRTTTOO”  Output: “G5R2T3O2”. 
+- Logical Problem: Find the second smallest element in the array. 
+- Given an array of numbers find the second smallest number. eg {33,4,1,2,99}  output : 2 
+- Arrange given numbers to form the biggest number.Input- List of numbers : {1, 34, 3, 98, 9, 76, 45, 4}   Output – 998764543431
+- Given Input,print the following output: “SSSSSTTPPQ”  Output: “5S2T2P1Q”.
+- Given an input String s= "AGBCAPPBLLC" Target : ABC. Find the smallest substring which contains the target.Result should be {AGFBC}
+- Largest substring with unique characters e.g. aaabcbdeaf Output : cbdeaf 
+- Minimum distance between 2 words counting the number of characters from middle of both words. E.g. ABC is XYZ and ABC & XYZ are two distinct words. Minimum distance between ABC and XYZ 
+- Given Input,print the following input: “SSSSSTTPPQ”  Output: “5S2T2P1Q”. 
+- Given Input,print the following input: “abababcd”  Output: “3a3b1c1d”. 
+- Given an input String s= "AGBCAPPBLLC" Target : ABC. Find the smallest substring which contains the target.Result should be {AGFBC} 
+- Given a String “aabbbbddcc” find the longest first repeating index and its length.  (Input: “aabbbbddcc”  Output: [2,4] 2 is the index and 4 is the length). 
+- Reverse a String without in-build function.
+- Given Input,print the following input: “AAASSSSMBBB”  Output: “3A4S1M3B”
+- Smallest subarray with sum greater than or equal to a given value. 
+Examples: arr[] = {1, 4, 45, 6, 0, 19}  x  =  51 
+Output: 3 
+- Find longest word in a given dictionary  
+example : dictionary is : {"to","toe","toes","doe","dog","god","dogs","book","banana"} and input String is "dsetog" 
+    output : toes, dogs 
+- Find the number in an array which is duplicate
+-  Given an array of Employees with name,marks. Find out the maximum average marks from the list. 
+String[][] scores={{"Bobby","123"},                                 
+{"Alia","-678"},                                 
+{"Bobby","100"},                                 
+{"Alex","223"},                                 
+{"Alex","-23"},                                 
+{"Bobby","723"}                                 
+}; Avg Bobby = 315,Alex= 100,Alia=-678. 
+Result: 315 
+- 2nd largest number 
+- Reverse string (Asked me to optimize it more and other methods to do it) 
+- You are given a sentence and you have to find the missing alphabets. 
+- Find the second smallest element of the sorted rotated array?      During the conversation, important thing was to include extreme scenarios when the array is empty or has just 1 element. 
+-  Given some string as input "GOOGLEDOCS",      print the following Output in the alphabetical order: "C1D1E1G2L1O3S1
+- Sort List of Names based on length List<String> has {"abc" ,"d","sfwefwe"}  end result after sorting  {"d" ,"abc","sfwefwe"} 
+- Read files coming from upstream in folder and process them based on their timestamp. files are like : Product_timestamp(20180609180901).csv            YYYYMMDDHHmmSS.. Constraint: 
+a) In case Multiple file are present process them in timestamp order: sort file on timestamp and process them 
+b) How will you handle duplicate file send from upstream: -- Cache last read timestamp> current file time stamp. 
+Add logic to ignore unwanted files (file.getExtension=="CSV" and file name start with "Product_") 
+c) How will you handle file still under movement: i.e file is still coming over network.          
+wait for file to be completely moved (ask logic to generate flag value may be on size and give retry logic) and then process remaining file. 
+- Find the maximum number of valid consecutive braces. A valid brace is ().   e.g.  ()()()((((())()()()()() Count in this case is 5            ()()((()()()(()) Count in this case is 3 3
+- Write pseudo code to find 1st non-repeating character in a give string.
+- Given an m*n matrix, print the matrix in reverse spiral form using recursion. 
+- Find the second smallest number from an int array. 
+- Find the smallest subarray whose sum is equal or greater than the target value 
+- Generate n number of sequence which have the prime factors as 2, 3, 5.. 
+- Arr1 = {a1, b1, c1}     Arr2 = {a2, b2, c2} Produce the output = a1a2+b1b2+c1c2. Should be optimized considering time complexity... 
+- Given an array [2, 1, 5, 8, 10] and a number 6, return a number from the array which is nearest to the given number. Time complexity of the solution. Now the array is sorted, can it be done with better time complexity. 
+- Maximize the profit from given array of stock prices over a week 
+- Given a dataset as follows(In a particular year, for a particular sport, the corresponding sports person broke the record. e.g. In the year 1990, in Cricket ABC broke a record and so on.): 
+Year         Sports 
+SportsPerson 
+----------------------------------------- 
+1990 Cricket ABC 
+1990 Tennis XYZ 
+1995 Cricket ABC2 
+1996 Tennis XYZ2 
+Write a data structure to store these data, so that if a year and sport is given in the argument, it should return the name of the sports person who broke a record in that particular sport in the year latest to the given year. 
+e.g. for year 1992 and sport Cricket it should return the latest record breaker i.e. ABC. 
+
+
+Puzzle:
+- A puzzle: You are given two ropes. Each of them take 60 minutes to burn. How would you measure 45 mins.
+- You have 10 boxes of balls (each ball weighing 10 gm) with one box with defective balls (each one of the defective balls weigh 9 gm). You are given an electronic weighing machine and only one chance at it. How will find out which box has the defective balls 
+- Have a 7 cm long gold bar, need to give 1 cm long piece to a worker daily for 7 days 2 cuts can be made on the gold bar. how to achieve this?
+Employer can pay for seven days by making 2 cuts in a way that he has 3 rods of size 1, 2 and 4.
+1st Day: Employer gives 1 unit cut.
+2nd day: Takes back 1 unit cut from employee given on first day and gives 2 unit cut.
+3rd Day: Gives both 1 unit and 2 unit cuts.
+4th Day: Takes back cuts of 1 and 2 units. Gives the cut of 4 units.
+  5th Day: Gives cut of 1 unit.
+6th Day: Takes back cut of 1 unit and gives cut of 2 units.
+7th Day: Gives cut of 1 unit.
+- Given a series of 9 bulbs with all of them switched on in the 1st iteration, 
+2nd iteration bulb No 2,4,6,8 toggled 
+3rd iteration bulb No 3,6,9 toggled 
+4th iteration No 4,8 toggled 
+How many number of bulbs will remain switched on at the end.
+At the end of 1000 iteration how many bulbs are lit and derive a formula to calculate the same
+How many number of bulbs will remain switched on at the end 9th iteration
+2nd iteration bulb No 2,4,6,8 toggled  
+3rd iteration bulb No 3,6,9 toggled  
+4th iteration No 4,8 toggled  
+5th iteration No 5 toggled  6
+th iteration No 6 toggled  
+7th iteration No 7 toggled  
+8th iteration No 8 toggled  
+9th iteration No 9 toggled  
+How many number of bulbs will remain switched on at  the end. and what is the sequence , and : hope your ans may come 1,4,9: and the sequence is perfect square 
+- There is 5l and 3l water can . Draw from it 4l of water in minimum steps. 
+
+JQuery:
+- How is jQuery, Knockout useful. (Were listed on my resume) 
+
+Performance:
+- A server process 1000 request per second. Make it capable of doing 10000 request per second. He was asking suggestions.
+
+JUnit:
+- Which testing framework you know
+- How doing mocking for JUNIT for endpoint or for web services
+- Integration test - Basic questions, how to mock, etc
+
+Managerial Round:
+- Kind of managerial ,behavioral(many behavioral questions on team conflict and overseas team collaboration) .
+- How to solve production related issues.(different ways, how we can solve)
+
+JMS:
+- Asked about jms(Java Messaging Services) 
+
+Maven:
+- How maven manages the project structure and how it internally works
+
+Servers:
+- Asked about Weblogic, can you create data source, queue etc 
+- how deployment is done in weblogic.
+
+Testing:
+- Have you done any load testing. which tool did u use?
+- Selenium script : Two input fields are there in a web page with one submit button. You have to enter field values and click on submit button. Then, go to next page and verify the message : “Data successfully saved.”
+- What is code coverage?
+- 
+Unix:
+- Basic Unix command to get all process 
+- Unix command to get size of folders. Command to know what is the CPU usage of all process running  in your system. 
+-  How to install software in Unix system
+- Unix command to convert all text files to PDf file  in the Directory and all its sub-directories. 
+- shell scripting or at least the basic Unix commands. 
+- Basic scripting commands like : grep , find, mkdir rmdir, sed etc
+- Unix directory permission explanation
+- Knowledge of group , owner etc
+- Write a unix command to count the total no. of given word (“good”) in file
+- Unix command for copying one file from one system to another. 
+- How to find free space in unix machine 
+
+c Unix command to get all process 
+- Unix command to get size of folders. Command to know what is the CPU usage of all process running  in your system. 
+-  How to install software in Unix system
+- Unix command to convert all text files to PDf file  in the Directory and all its sub-directories. 
+- shell scripting or at least the basic Unix commands. 
+- Basic scripting commands like : grep , find, mkdir rmdir, sed etc
+- Unix directory permission explanation
+- Knowledge of group , owner etc
+- Write a unix command to count the total no. of given word (“good”) in file
+- Unix command for copying one file from one system to another. 
+- How to find free space in unix machine 
+
+

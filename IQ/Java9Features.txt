@@ -1,0 +1,20 @@
+### Java 9 Features 
+1 . Jshell
+2. JPMS( Java Platform Module System )  ->  we can call  modules instead of this serive jar or that service jar or this service jar .
+3. J Link (Java Linker) [ to created to own customized JRE  ]->  which suitable for portable devices ,  IOT and Microservices
+4. Http/2 Client
+5. Process API Updates.
+6. private methods in interface ->  Resusable methods within in interface
+7. try with Resource with Enhancement.
+8. Factory Methods -> to create unmodifyable collections.
+9. Stream API Enhancement. 
+10. <> operator enhancement  ->  is applicable for applicable for annomyous class also
+11. @SafeArgs annotations.
+12.  G1 GC -> which came 1.6 only it defaultin java 9.
+
+
+Session -2 
+------------
+-------------
+
+2. JPMS ( Java Platform Module System ) 

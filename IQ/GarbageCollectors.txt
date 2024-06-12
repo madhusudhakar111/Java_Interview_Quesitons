@@ -1,0 +1,22 @@
+Garbage Collector 
+
+1. Serial Collector
+2. Parallal collector -- Throught put high - stop world
+3. Concurrent Collector  -- latency low  - not stop the world it happens only marking time.
+4. G1
+
+
+Through Put  - number transaction per seconds
+Latency  - transaction time for second 
+
+
+G1 :
+Five major improvements since java 8
+1. String deduplicaiton
+2. Class Unloading with concurrent mark
+
+3. eagerly reclaim the humangous region   - Java 9
+4. Adaptive start of concurrent mark      - Java 9
+5. more effficient collections			  - Java 9
+
+

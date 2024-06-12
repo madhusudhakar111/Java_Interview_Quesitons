@@ -1,0 +1,48 @@
+
+public class User {
+
+	private final String name;
+	private final String id;
+
+	public User(UserBuilder userbuilder) {
+		this.name = userbuilder.name;
+		this.id = userbuilder.id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	 static class UserBuilder {
+
+		private String name;
+		private String id;
+
+		public UserBuilder name(String name) {
+			this.name = name;
+			return this;
+		}
+
+		public UserBuilder id(String id) {
+			this.id = id;
+			return this;
+		}
+
+		public User build() {
+			User u = new User(this);
+			return u;
+		}
+
+	}
+	
+	public static void main(String[] args) {
+		User u = new User.UserBuilder().id("100").name("xx").id("200").build();
+		System.out.println(u.getId());
+		System.out.println(u.getName());
+	}
+
+}

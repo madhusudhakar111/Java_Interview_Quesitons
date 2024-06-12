@@ -1,0 +1,108 @@
+SOLID PRINICPLE :
+
+S -  Single Responebility .
+O  - open/close princle. -  closed for modifiation. Open for extension 
+L  - Liskov substitution  - 
+
+
+
+
+List lst = null;
+
+	lst = new ArrayList();
+	lst = new LinkedList();
+	lst = new Vector();
+	
+	
+	lst.add();
+	
+	//lst. vector metod
+	//lst. vector metod
+	//lst.list methods
+	//lst vector metods
+
+I  - Interface segragation   
+D  - Depedancy Injection.
+
+Executor
+
+ ExecutorService
+ 
+ ThreadPoolExecutor(c) implements ExecutorService
+
+
+
+Principle
+
+
+												Animals
+												eat():
+				
+			Domestic													NonDomestic		
+			eat()
+																			eat()	; hunt()
+			
+		DomesticVeg     domesticNonVef									 Non           NonVeg
+			
+		eat()	       eat()												  eat()		eat()
+		
+		
+		
+		
+		-----------------
+		
+		Class C {
+		
+		
+		main (){
+				B b = new B();		
+				A a = new A(b)
+		
+		}
+		
+		
+		
+		class A {
+		
+		B b;
+			A a(Emp emp){
+			this.b=emp
+			
+			}
+			
+			
+		 m1(){
+
+		b1.age();
+	
+	}
+		
+		}
+		
+		
+		Clas B {
+		
+				age(){
+				
+				
+				}
+		
+		}
+		} 
+		
+		Clas C {
+		
+				age(){
+				
+				
+				}
+		
+		}
+		} 
+		
+		interca Emp{
+
+				age();
+		
+		}
+		

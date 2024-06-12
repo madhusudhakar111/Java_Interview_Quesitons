@@ -1,0 +1,104 @@
+// bounded generics
+
+
+
+public class BoundedGeneric<T> {
+	
+	T salary;
+	
+	BoundedGeneric(T salary){
+		this.salary= salary;
+	}
+	
+
+	public static void main(String[] args) {
+
+		BoundedGeneric b = new BoundedGeneric<Integer>(10);
+		System.out.println(b.salary);
+		BoundedGeneric b1 = new BoundedGeneric<Float>(10.25f);
+		System.out.println(b1.salary);
+		
+		BoundedGeneric b2 = new BoundedGeneric<Double>(104444d);
+		System.out.println(b2.salary);
+		
+		BoundedGeneric b3 = new BoundedGeneric<String>("sudhakar");
+		System.out.println(b3.salary);
+		
+	}
+
+}
+
+
+// Unbounded generics
+
+
+
+public class UnBoundedGeneric<T extends Number> {
+	
+	T salary;
+	
+	UnBoundedGeneric(T salary){
+		this.salary= salary;
+	}
+	
+
+	public static void main(String[] args) {
+
+		UnBoundedGeneric b = new UnBoundedGeneric<Integer>(10);
+		System.out.println(b.salary);
+		UnBoundedGeneric b1 = new UnBoundedGeneric<Float>(10.25f);
+		System.out.println(b1.salary);
+		
+		UnBoundedGeneric b2 = new UnBoundedGeneric<Double>(104444d);
+		System.out.println(b2.salary);
+		
+		
+		// it wont allow becaue of extended Number class
+		UnBoundedGeneric b3 = new UnBoundedGeneric<String>("sudhakar");
+		System.out.println(b2.salary);
+		
+		
+	}
+
+}
+
+
+// one more example for unbounde 
+
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class UnBoundedGenericList<T extends ArrayList> {
+	
+	T salary;
+	
+	UnBoundedGenericList(T salary){
+		this.salary= salary;
+	}
+	
+
+	public static void main(String[] args) {
+
+		ArrayList lst = new ArrayList();
+		
+		lst.add("sudhakar");
+		
+		UnBoundedGenericList b = new UnBoundedGenericList<ArrayList>(lst);
+		System.out.println(b.salary);
+		
+		
+		HashMap m = new HashMap();
+		
+		m.put("sudhkar", "sudhakarmalle");
+		
+		// it wont allow 
+		
+		UnBoundedGenericList b1 = new UnBoundedGenericList<HashMap>(lst);
+		System.out.println(b1.salary);
+		
+		
+	}
+
+}

@@ -1,0 +1,234 @@
+Session 1: 
+
+Functional interface contains single abstract method 
+It is already  Exist Like  Runnable , comparable, comparator, callable  
+1. What is Lambda Expression 
+ a). Lambda expression is Anonymous function
+ 
+
+2. default methods and static metods 
+3. Functional interface
+
+@Funcitonalinterface
+interface interX {
+
+public void m1();
+defaultm2() {
+}
+
+
+public static void m3(){ }
+
+}
+
+the above example is functional . because it contain only one abstract method. 
+
+
+
+-------------------------------------
+Session 2 :
+
+@Funcitonalinterface
+interface A {
+	public void m1();
+}
+
+public class Demo implements A {
+
+	public void m1(){
+		System.out.println("Hello world ");
+	}
+	
+}
+
+public class Test {
+
+ public static void main(String s[]){
+ 
+ A a = new Demo();
+ a.m1();    // here it will call m1 methods
+ 
+ 
+ A a1 = ()-> System.out.println("Hello world ");    
+ 
+ a1.m1();   //  this peace of code is equivalent to above. Here no need class and metod . required functional interface and abstract method.
+ 
+ }
+
+
+]
+
+- Annomoys inner class and lambda expression not same.
+
+Annomoys inner can contains multiple methods but functional interface can contain only one abstract method.
+
+
+
+- Default methods
+
+Multiple inheritanc not possible in java classes . it willit will o give diamond proble, . default metods verride
+
+interface A {
+
+default void m1(){
+System.out.println("Hello");
+}
+
+}
+
+interface B {
+
+default void m1(){
+System.out.println("Hello");
+}
+
+}
+
+Class C implements A,B {
+	
+	public void m1(){
+	System.out.println("Hello world" );
+	}
+	
+	public void static main(){
+		
+		A.super.m1();	
+		B.super.m1();
+	
+	}
+	
+}
+
+
+Q). When to use static methods in interface
+
+ans). to define general utility methods inside interface with static.
+
+
+programming question: 
+
+
+
+
+----------------------- Optinal 
+
+Optional<Object> empty = Optional.empty();
+		
+		System.out.println(empty);
+		
+		String name = "sudhakar";
+		
+		Optional<String> of = Optional.of(name);  
+		
+		System.out.println(of);  // Optional[sudhakar]
+		
+		System.out.println(of.get()); // sudhakar
+		
+		String name1 = null;
+		
+		//Optional<String> of1 = Optional.of(name1); //  Exception in thread "main" java.lang.NullPointerException
+		
+		Optional<String> of2 = Optional.ofNullable(name1);  // Optional.empty
+		
+		if(of2.isPresent()) {
+			System.out.println(of2);
+		}
+		
+		System.out.println(of2.orElse(" empty values pls provide"));
+		
+		//System.out.println(of2.orElseThrow(() ->  new IllegalAccessException("excepiton raised")));
+
+
+----------------------  >  why static method in interface java 8
+
+Differences between static and default methods in Java 8:
+
+1) Default methods can be overriden in implementing class, while static cannot.
+
+2) Static method belongs only to Interface class, so you can only invoke static method on Interface class, not on class implementing this Interface, see:
+
+
+public interface MyInterface {
+    default void defaultMethod(){
+        System.out.println("Default");
+    }
+
+    static void staticMethod(){
+        System.out.println("Static");
+    }    
+}
+
+public class MyClass implements MyInterface {
+
+    public static void main(String[] args) {
+
+        MyClass.staticMethod(); //not valid - static method may be invoked on containing interface class only
+        MyInterface.staticMethod(); //valid
+    }
+}
+
+--- Remove duplicate elements from list in java 8 using stream
+
+ List<Integer> lst = Arrays.asList(1,2,3,4,5,6,3,7, 2, 8 , 6 ,1);	
+		  lst = lst.stream().distinct().collect(Collectors.toList());
+		  System.out.println(lst);
+		  
+		  
+		  
+-- find first and find any
+ -- findAny usesful in parallelStream
+	  	  
+	List<Integer> lst = Arrays.asList(1, 2, 3, 4, 5, 6, 3, 7, 2, 8, 6, 1);
+
+		Optional<Integer> first = lst.stream().findFirst();
+		if (first.isPresent()) {
+			System.out.println(first.get());
+		}
+
+		Optional<Integer> firstany = lst.stream().findAny();
+
+		if (firstany.isPresent()) {
+			System.out.println(firstany.get());
+		}
+
+		
+		Optional<Integer> firstany1 = lst.parallelStream().findAny();
+
+		if (firstany1.isPresent()) {
+			System.out.println(firstany1.get());
+		}
+
+
+-- max and min element in List
+List<Integer> lst = Arrays.asList(1,2,3,4,5,6,3,7, 2, 8 , 6 ,1);	
+	lst = lst.stream().distinct().collect(Collectors.toList());
+		System.out.println(lst);
+		
+		
+		Optional<Integer> maxNumber = lst.stream().max(Integer::compare);
+		
+		if(maxNumber.isPresent()) {
+			System.out.println(maxNumber.get());
+		}
+		
+		Optional<Integer> minNumber = lst.stream().min(Integer::compare);
+		
+		if(minNumber.isPresent()) {
+			System.out.println(minNumber.get());
+		}
+
+
+-------------------- sorted list
+List<Integer> l = lst.stream().sorted().collect(Collectors.toList());
+		System.out.println(l);
+		
+		List<Integer> l1 = lst.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList());
+		System.out.println(l1);
+		
+------------map few elements from list		
+
+SELECT * FROM  (
+
+SELECT e.* ROW_NUMBER() OVER(ORDER BY SAL DESC) AS rownumber FROM EMP e
+
+ ) WHERE rownumber =2;

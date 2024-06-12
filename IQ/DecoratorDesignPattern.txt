@@ -1,0 +1,92 @@
+Decorator Design Pattern :
+
+- Used when we want to modify the funcitonality of an object at Run Time & it sould not change individual Object functionality.
+
+
+					Dress
+					 |
+			    Basic Dress				
+		 /			|        \					- DressDecorator
+Casual Dress    Fancy Dress    Sport Dress		
+
+
+
+interface Dress{	
+	public void  assemble();	
+}
+
+
+class DressDecorator implements Dress{
+
+	Dress dress;
+	
+	public DressDecorator(Dress dress1) {
+		dress = dress1;
+	}
+	
+	@Override
+	public void assemble() {
+		this.dress.assemble();
+	}
+	
+}
+
+class BasicDress implements Dress {
+	@Override
+	public void assemble() {
+		System.out.println("Basic Dress Features");
+	}
+	
+}
+
+
+
+
+class CasualDress extends DressDecorator {
+
+	public CasualDress(Dress dress1) {
+		super(dress1);
+	}
+	
+	
+	@Override
+	public void assemble() {
+		super.assemble();
+		System.out.println("Casual Dress");
+	}
+	
+}
+
+class Fancy extends DressDecorator {
+
+	public Fancy(Dress dress1) {
+		super(dress1);
+	}
+	
+	
+	@Override
+	public void assemble() {
+		super.assemble();
+		System.out.println("Fancy Dress");
+	}
+	
+}
+
+
+
+
+public class DecoratorPatternTest {
+
+	public static void main(String[] args) {
+		//Dress basicdress = new DressDecorator(new BasicDress());
+		//basicdress.assemble();
+		
+		Dress fancy = new DressDecorator(new Fancy(new BasicDress()));
+		fancy.assemble();
+	}
+	
+	
+	
+	
+}
+		

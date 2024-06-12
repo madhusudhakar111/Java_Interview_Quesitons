@@ -1,0 +1,184 @@
+final vs finally vs finalize in Java
+
+
+ans):  final to delare variable
+final int i =20;
+
+finally to relase the resource like io.close() , db.close()
+
+finalize to call the Garbage  Collector
+
+
+-----------------------------------------------------------------------------------------------------------
+
+1.) covarient return type
+ans ) ; 
+
+
+ public static ExecutorService newSingleThreadExecutor(ThreadFactory threadFactory) {
+        return new FinalizableDelegatedExecutorService
+            (new ThreadPoolExecutor(1, 1,
+                                    0L, TimeUnit.MILLISECONDS,
+                                    new LinkedBlockingQueue<Runnable>(),
+                                    threadFactory));
+    }
+ 
+ 
+ 
+      class FinalizableDelegatedExecutorService  extends DelegatedExecutorService 
+   
+       static class DelegatedExecutorService extends AbstractExecutorService 
+	   
+	   public abstract class AbstractExecutorService implements ExecutorService 
+	   
+	   
+	    
+	   
+
+------------------------------------------------------------------------------------------------------------
+	   
+	   
+SingleTon Class :
+
+
+
+public class MySingleton {
+
+	private static MySingleton mysingleton;
+
+	private MySingleton() {
+
+	}
+
+	public static MySingleton getInstance() {
+
+		if (mysingleton == null) {
+			
+			synchronized(MySingleton.class) {
+				
+				if (mysingleton == null) {
+					mysingleton = new MySingleton();
+				}
+				
+			}
+			
+		}
+
+		return mysingleton;
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Immutable  : 
+
+
+public final class Employee {
+	
+	private final String name;
+	private final String salary;
+	
+	public Employee(String name, String salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getSalary() {
+		return salary;
+	}	
+	
+
+}
+
+------------------------------------------------------------------------------------------------------------
+	   
+volatile   :
+
+. It works on main memory (RAM)instead of cache memory
+. prevents the instruction reorder by compiler -- Happens Beffore
+. Visibility Guarantry 
+. Using in multithread environment
+ 
+ Ex:  father , moter , transferrign the amount to son at paralalle
+ 
+ 
+ ------------------------------------------------------------------------------------------------------------
+Transient  :
+
+- Using in seriliazation
+- Transient variable dont participate into serilization.
+- static transinet combination , No use with transsient becasue , static is class level and transactiont is object level
+- final transient combination No use with transsient becasue ,  because that is final . it will participate in serilization
+
+------------------------------------------------------------------------------------------------------------
+
+Collection Framework:
+										    Iterable
+												|
+												|			
+											Collection
+												|												
+												|
+			-------------------------------------------------        					
+			|							|					|
+			|							|					|
+			|							|					|
+			|							|					|
+			List(I)					  Queue (I)				Set(I)
+		     |							|	|				|
+			 |							|
+			 |							|					|
+			 |	Dequeue(I)--------------|					|
+			 |	 |						|					|
+ ----------------|---------------		|			---------------------
+ |			     |  		    |	PriorityQueue	|				     |
+ |			     |		        |					|				     |
+ ArrayList  LinkedList		Vector				SortedSet(I)			HashSet
+													|					 |
+													|					 |
+													|				LinkedHashSet				
+											   Treeset
+											   
+											   
+											   
+											   
+											   
+											   Map
+											    |
+												|
+									-------------------------- 
+									|						   |
+									|						   |
+									|						   |
+								SortedMap(I)			   HashMap
+									|					    	|
+									|					  		|
+									|				 	 LinkedHashMap			
+								 TreeMap
+									
+									
+									
+	
+------------------------------------------------------------------------------------------------------------	   
+	   
+	   
+	   Lock API : 
+	   
+	   
+	   
+------------------------------------------------------------------------------------------------------------	
+
+   
+
+Difference between Stream Vs Parallal strem 
+	   
+	   
+	   
+	   
+	   

@@ -1,0 +1,27 @@
+1.) covarient return type
+ans ) ; 
+
+
+ public static ExecutorService newSingleThreadExecutor(ThreadFactory threadFactory) {
+        return new FinalizableDelegatedExecutorService
+            (new ThreadPoolExecutor(1, 1,
+                                    0L, TimeUnit.MILLISECONDS,
+                                    new LinkedBlockingQueue<Runnable>(),
+                                    threadFactory));
+    }
+ 
+ 
+ 
+       class FinalizableDelegatedExecutorService  extends DelegatedExecutorService 
+   
+       static class DelegatedExecutorService extends AbstractExecutorService 
+	   
+	   public abstract class AbstractExecutorService implements ExecutorService 
+	   
+	   
+	   
+	   m1(int a );
+	   m1(Long b);
+	   
+	   
+	   m1(12223333333)

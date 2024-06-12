@@ -1,0 +1,73 @@
+ClassNotFoundExcepiton Vs ClassDefFoundError
+
+ClassNotFoundExcepiton :
+
+- It is an exception. It is of type java.lang.Exception.
+
+
+public class MainClass
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            Class.forName("Sudhakar");
+        }catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
+// here there no Sudhakar.java class then it will come below exception
+
+Exception in thread "main" java.lang.ClassNotFoundException: Sudakar
+        at java.net.URLClassLoader.findClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        at java.lang.Class.forName0(Native Method)
+        at java.lang.Class.forName(Unknown Source)
+        at ClassNTException.main(ClassNTException.java:4)
+		
+		
+ClassDefFoundError  :
+
+
+		
+class A
+{
+ void m1() {
+ 
+ syso("helloworld")
+}
+
+public class B
+{
+    public static void main(String[] args)
+    {
+        A a = new A();
+    }
+}
+
+
+// while Running B class , Pls Remove A.class then 
+
+
+ception in thread "main" java.lang.NoClassDefFoundError: A
+        at ClassNTException.main(ClassNTException.java:5)
+Caused by: java.lang.ClassNotFoundException: A
+        at java.net.URLClassLoader.findClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        ... 1 more
+
+ClassNotFoundException 										|						NoClassDefFoundError
+
+1. It is an exception. It is of type java.lang.Exception.   |  1. It is an error. It is of type java.lang.Error.
+
+2 . It occurs when an application tries to load a class at run time which is not updated in the classpath. | 2.  It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
+
+3. It is thrown by the application itself. It is thrown by the methods like Class.forName(), loadClass() and findSystemClass(). |  3. It is thrown by the Java Runtime System.
+
+It occurs when classpath is not updated with required JAR files. | It occurs when required class definition is missing at runtime.
